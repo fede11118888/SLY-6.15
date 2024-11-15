@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name         SLY Assistant
+// @name         SLY 6.15
 // @namespace    http://tampermonkey.net/
 // @version      0.6.15
 // @description  try to take over the world!
 // @author       SLY w/ Contributions by niofox, SkyLove512, anthonyra, [AEP] Valkynen
 // @match        https://*.based.staratlas.com/
 // @require      https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js
-// @require      https://raw.githubusercontent.com/ImGroovin/SAGE-Lab-Assistant/main/anchor-browserified.js
-// @require      https://raw.githubusercontent.com/ImGroovin/SAGE-Lab-Assistant/main/buffer-browserified.js
-// @require      https://raw.githubusercontent.com/ImGroovin/SAGE-Lab-Assistant/main/bs58-browserified.js
+// @require      https://raw.githubusercontent.com/fede11118888/SLY-6.15/main/anchor-browserified.js
+// @require      https://raw.githubusercontent.com/fede11118888/SLY-6.15/main/buffer-browserified.js
+// @require      https://raw.githubusercontent.com/fede11118888/SLY-6.15/main/bs58-browserified.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=staratlas.com
 // @grant        GM_setValue
 // @grant        GM_getValue
@@ -19,10 +19,10 @@
     'use strict';
 
     //Used for reading solana data
-    let customReadRPCs = [];
+    let customReadRPCs = ['https://solana-mainnet.api.syndica.io/api-token/2nTbQoC8ApCTdsxkdeXgnQHoKFko8yb3rgjpEGqoBKbBW1pQCQeLF34zjw6VwNDJdhDZsLyPx1jGED4ULa6btm57gCoFXJUxUWMaJupjPsk8hsDer6uxzu2EjaYEYJcj2LV62EzvHVvq6v8JdG8umCPVK6pBXbnTZ7xfwsLMt7rDdoiMxgBqCzooqULyKC6mf6Ch9fgPjvWzE1vXc4kcovAFn3ACDBu6PzfNbk64RCGcdmnUvuWvKu9fnHhZKpCh13662euPDoyog1WB19DYxQZJoy8uW1FNcxFBhJMmbnKZa429qSCg3NcQXfPky5wivErcnXFs6FEHAp71er45GGutyuYwLjgmnB2LTfehguxGiY9KwssKTZTkY9yLx4FijgJ4qjEBUSKNDhe2bMd5v46J1m8pcrejCpdtHtFx3hKvgoL7UhsszAq1HWszvrxG4iLKVnh2P8vi9btveeTLhaR7dMzNjQYw73G71fSL2DqMD8zeZNurwYJKfgCcK',];
 
     //Used for pushing transactions to solana chain
-    let customWriteRPCs = [];
+    let customWriteRPCs = ['https://solana-mainnet.api.syndica.io/api-token/2nTbQoC8ApCTdsxkdeXgnQHoKFko8yb3rgjpEGqoBKbBW1pQCQeLF34zjw6VwNDJdhDZsLyPx1jGED4ULa6btm57gCoFXJUxUWMaJupjPsk8hsDer6uxzu2EjaYEYJcj2LV62EzvHVvq6v8JdG8umCPVK6pBXbnTZ7xfwsLMt7rDdoiMxgBqCzooqULyKC6mf6Ch9fgPjvWzE1vXc4kcovAFn3ACDBu6PzfNbk64RCGcdmnUvuWvKu9fnHhZKpCh13662euPDoyog1WB19DYxQZJoy8uW1FNcxFBhJMmbnKZa429qSCg3NcQXfPky5wivErcnXFs6FEHAp71er45GGutyuYwLjgmnB2LTfehguxGiY9KwssKTZTkY9yLx4FijgJ4qjEBUSKNDhe2bMd5v46J1m8pcrejCpdtHtFx3hKvgoL7UhsszAq1HWszvrxG4iLKVnh2P8vi9btveeTLhaR7dMzNjQYw73G71fSL2DqMD8zeZNurwYJKfgCcK',];
 
     let saRPCs = [
         'https://rpc.ironforge.network/mainnet?apiKey=01HZFVRZ4A5WVX2NDA4PCPHJ7N',
